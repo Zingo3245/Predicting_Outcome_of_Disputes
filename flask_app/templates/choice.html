@@ -1,0 +1,43 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Conflict Selection</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Cabin:700' rel='stylesheet' type='text/css'>
+
+  <!-- Custom styles for this template -->
+  <link href="css/grayscale.min.css" rel="stylesheet">
+</head>
+<body id="page-top">
+  <header class="masthead">
+    <div class="intro-body">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h1 class="brand-heading">Choose an incident</h1>
+              <select name="incidents" id="incidents" method="GET" onchange='onChange()' action="/">
+              {%for incident in incidents %}
+              <option value="{{incident}}" SELECTED>{{ incident }}</option>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+</body>
+<script>
+  function onChange(){
+    console.log('Called on change');
+    const newURL = $('#incidents').val();
+
+    console.log(newURL);
+    window.location.replace( '/' + newURL);
+  }
+  </script>
+</html>
